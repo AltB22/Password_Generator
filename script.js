@@ -20,7 +20,7 @@ function generatePassword(){
   var charCount = (countPrompt);
     if(charCount < 8 || charCount > 128); {
       confirm("Invalid # of characters, please try again");
-      return false;
+      return "";
     }
  
     
