@@ -5,8 +5,9 @@ var numbers= ["0123456789"]
 var lowerChar= ["abcdefghijklmnopqrstuvwxyz"];
 var upperChar = ["ABCDEFGHIJKLMNOPQRSTUVWYZ"];
 var specialChar = ["!@#$%^&*()"];
-var password = [""]; // Password output
+//var password = [""]; // Password output
 //var charCount = []; // Number of characters selected by user
+var charCount = [];
 
 
 function writePassword() {
@@ -15,41 +16,57 @@ function writePassword() {
   
   passwordText.value = password;
 // Write password to the #password input
-var charCount = [];
+
 charCount = prompt("Enter number of password characters btw 8-128");{}
 
   if(charCount < 8 || charCount > 128)
     alert("Invalid # of characters, please try again");
     password
 }
+
+
 function generatePassword(){
  
-      var includeNumber = confirm("Include Numbers?");
-      var includeUpper = confirm("Include Uppercase?");
-      var includeLower = confirm("Include Lowercase?");
-      var includeSpecial = confirm("Include Special Characters");
+  var includeNumber = confirm("Include Numbers?");
+  var includeUpper = confirm("Include Uppercase?");
+  var includeLower = confirm("Include Lowercase?");
+  var includeSpecial = confirm("Include Special Characters");
 
-      var include = []
+  var include = []
 
-      if (includeNumber == true); {
+      if (includeNumber ===true); {
+        include.push(lowerChar);
+      }
+      if (includeNumber === true); {
+        include.push(upperChar);
+      }
+      if (includeNumber === true); {
+        include.push(specialChar);
+      }
+      if (includeNumber === true); {
         include.push(numbers);
       }
-
 
       includeNumber = numbers
       includeUpper = upperChar
       includeLower = lowerChar
       includeSpecial = specialChar
 
+      var password = ""
 
-
+      for (var i = 0; i <= charCount.length; i++) {
+        var randomNumber = Math.floor(Math.random() * charCount.length);
+        password += numbers.string(randomNumber, randomNumber +1)
+        
+      }
+     
+      return password;
 }
-
 
 
   generateBtn.addEventListener("click", writePassword);
 
-
+console.log(password)
     
 
 
